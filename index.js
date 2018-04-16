@@ -7,5 +7,9 @@ var guessRemain = 10;
 var word = new Word("play");
 var golfWords = ["green", "fairway", "putter", "sandtrap", "bunker", "hazard", "driver", "wedge", "caddy", "clubhouse", "golfcart", "teebox", "iron", "range", "fore", "mulligan", "provisional"];
 var wordMath = Math.floor(Math.random() * (golfWords.length + 1));
+//console.log(wordMath);
+word = new Word(golfWords[wordMath]);
+//returns object
+console.log(word);
 //prompts user for guess
 //use inquirer

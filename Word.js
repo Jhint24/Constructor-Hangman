@@ -19,11 +19,11 @@ function Word (word)    {
         }
     }
 }
-var grandma = new Word("mom");
-console.log(grandma);
-grandma.guessLetter();
-console.log(grandma.charArray);
-console.log(grandma.toString())
+// var grandma = new Word("mom");
+// console.log(grandma);
+// grandma.guessLetter();
+// console.log(grandma.charArray);
+// console.log(grandma.toString())
 
 
 
