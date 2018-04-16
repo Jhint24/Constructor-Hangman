@@ -13,13 +13,15 @@ play.letterFunc();
 console.log(play.charArray);
 
 var userExp = function ()   {
-
     var blankCounter = 0;
 	for (var i = 0; i < play.word.length; i++) {
 		if (play.returnString()[i] === "_") {
-			blankCounter++;
+            blankCounter++;
+        }
+    }
+            
     if (play.guessRemain > 0 && blankCounter > 0)   {
-  inquirer.prompt([
+        inquirer.prompt([
       {
         type: "prompt",
         message: "Please guess a letter",
@@ -27,7 +29,7 @@ var userExp = function ()   {
       }
     
     ])
-      .then(function(response) {
+        .then(function(response) {
         console.log(play.guessLetter(response.guess));
       if (play.guessRemain > 0 && blankCounter > 0) {
         userExp()
