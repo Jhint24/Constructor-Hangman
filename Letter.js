@@ -3,8 +3,11 @@ function Letter (character)   {
     this.character = character,
     this.guessed = false,
     //character correct or incorrect function 
-    this.toString = function (play)   {
-        if (this.character === true)   {
+    this.revealCharacter = function ()   {
+        if (this.character === " ")    {
+            return " ";
+        }
+        else if (this.guessed === true)   {
             return this.character;
         }
         else    {

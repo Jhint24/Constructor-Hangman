@@ -10,13 +10,33 @@ var wordMath = Math.floor(Math.random() * (golfWords.length + 1));
 //console.log(wordMath);
 var play = new Word(golfWords[wordMath]);
 //returns object
-console.log(play.word);
-console.log(play.toString());
-console.log(play.guessLetter());
+play.letterFunc();
+console.log(play.charArray);
+
+var userExp = function ()   {
+inquirer
+  .prompt([
+      {
+        type: "prompt",
+        message: "guess letter?",
+        name: "guess"
+      }
+    ])
+      .then(function(response) {
+        console.log(play.guessLetter(response.guess));
+    userExp()
+      });
+
+    }
+// console.log(play.word);
+// console.log(play.letterFunc());
+// console.log(play.charArray);
+
+// console.log(play.guessLetter)
 //prompts user for guess
 //use inquirer
 // function prompt ()  {
 //     var blanks = 
 // if (guessRemain > 0)
 // }
-// prompt();
+userExp();
