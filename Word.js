@@ -2,7 +2,7 @@ var Letter = require ("./Letter");
 
 function Word (word)    {
     //An array of new Letter objects representing the letters of the underlying word
-    //this.word = word,
+    this.word = word,
     this.charArray = [],
     //A function that returns a string representing the word
     this.toString = function()    {
@@ -17,6 +17,7 @@ function Word (word)    {
         for (var i = 0; i < this.charArray.length; i++) {
             this.charArray[i].checkChar(character);
         }
+        return this.toString();
     }
 }
 // var grandma = new Word("mom");

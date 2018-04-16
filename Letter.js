@@ -3,7 +3,7 @@ function Letter (character)   {
     this.character = character,
     this.guessed = false,
     //character correct or incorrect function 
-    this.toString = function ()   {
+    this.toString = function (play)   {
         if (this.character === true)   {
             return this.character;
         }
@@ -22,9 +22,9 @@ function Letter (character)   {
     }
 }  
 
-// var grandma = new Letter("f");
+//var grandma = new Letter("f");
 // console.log(grandma);
-// console.log(grandma.toString());
+//console.log(grandma.toString());
 // grandma.guessed = true;
 // console.log(grandma.toString);
 // grandma.checkChar("f");
