@@ -2,7 +2,7 @@ var Letter = require ("./Letter");
 
 function Word (word)    {
     //An array of new Letter objects representing the letters of the underlying word
-    this.word = word,
+    //this.word = word,
     this.charArray = [],
     //A function that returns a string representing the word
     this.toString = function()    {
@@ -13,9 +13,9 @@ function Word (word)    {
         return wordDisplayed;
     }
     // function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
-    this.guessLetter = function (checkChar) {
+    this.guessLetter = function (character) {
         for (var i = 0; i < this.charArray.length; i++) {
-            this.charArray[i].checkChar(checkChar);
+            this.charArray[i].checkChar(character);
         }
     }
 }

@@ -13,3 +13,8 @@ word = new Word(golfWords[wordMath]);
 console.log(word);
 //prompts user for guess
 //use inquirer
+// function prompt ()  {
+//     var blanks = 
+// if (guessRemain > 0)
+// }
+// prompt();
