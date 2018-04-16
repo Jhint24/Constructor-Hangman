@@ -4,6 +4,7 @@ function Word (word)    {
     //An array of new Letter objects representing the letters of the underlying word
     this.word = word,   
     this.charArray = [],
+    this.guessRemain = 5,
     //A function that returns a string representing the word
     this.letterFunc = function()    {
     for (var i = 0; i < this.word.length; i++)  {

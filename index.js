@@ -1,7 +1,6 @@
 var Word = require ("./Word");
 var inquirer = require("inquirer");
-//remaining guesses
-var guessRemain = 10;
+//remaining guesses put into word.js
 //randomly selects a word
 //word bank
 //var word = new Word("play");
@@ -14,20 +13,33 @@ play.letterFunc();
 console.log(play.charArray);
 
 var userExp = function ()   {
-inquirer
-  .prompt([
+
+    var blankCounter = 0;
+	for (var i = 0; i < play.word.length; i++) {
+		if (play.returnString()[i] === "_") {
+			blankCounter++;
+    if (play.guessRemain > 0 && blankCounter > 0)   {
+  inquirer.prompt([
       {
         type: "prompt",
-        message: "guess letter?",
+        message: "Please guess a letter",
         name: "guess"
       }
+    
     ])
       .then(function(response) {
         console.log(play.guessLetter(response.guess));
-    userExp()
+      if (play.guessRemain > 0 && blankCounter > 0) {
+        userExp()
+        }
       });
 
     }
+    else {
+        return "game over!"
+
+    }
+}
 // console.log(play.word);
 // console.log(play.letterFunc());
 // console.log(play.charArray);
