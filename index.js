@@ -11,16 +11,10 @@ var play = new Word(golfWords[wordMath]);
 //returns object
 play.letterFunc();
 console.log(play.charArray);
-
+var hiddenWord = play.returnString();
 var userExp = function ()   {
-    var blankCounter = 0;
-	for (var i = 0; i < play.word.length; i++) {
-		if (play.returnString()[i] === "_") {
-            blankCounter++;
-        }
-    }
-            
-    if (play.guessRemain > 0 && blankCounter > 0)   {
+
+    if (play.guessRemain > 0 && hiddenWord.includes("_"))   {
         inquirer.prompt([
       {
         type: "prompt",
@@ -31,16 +25,34 @@ var userExp = function ()   {
     ])
         .then(function(response) {
         console.log(play.guessLetter(response.guess));
-      if (play.guessRemain > 0 && blankCounter > 0) {
-        userExp()
+        if (!play.word.includes(response.guess) && !play.charArray.includes(response.guess))    {
+            console.log("Wrong guess");
+            play.guessRemain--;
         }
+        userExp();
       });
 
     }
-    else {
-        return "game over!"
+    else if (!play.charArray.includes('_')) {
+        console.log("You WON! Nice Job!")
+        hiddenWord = null;
+        play = new Word(golfWords[wordMath]);
+        play.letterFunc();
+        hiddenWord = play.guessLetter;
+        play.guessRemain = 5;
+        userExp();
 
     }
+    else if ( play.guessRemain === 0)   {
+        console.log("Game Over, the word was " + play.word +  " ...Try again!");
+        hiddenWord = null;
+        play = new Word(golfWords[wordMath]);
+        play.letterFunc();
+        hiddenWord = play.guessLetter;
+        play.guessRemain = 5;
+        userExp();
+
+    } 
 }
 // console.log(play.word);
 // console.log(play.letterFunc());
