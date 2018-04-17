@@ -10,8 +10,8 @@ var wordMath = Math.floor(Math.random() * (golfWords.length + 1));
 var play = new Word(golfWords[wordMath]);
 //returns object
 play.letterFunc();
-console.log(play.charArray);
-var hiddenWord = play.returnString();
+//console.log(play.charArray);
+var hiddenWord = play.guessLetter();
 var userExp = function ()   {
 
     if (play.guessRemain > 0 && hiddenWord.includes("_"))   {
@@ -33,12 +33,13 @@ var userExp = function ()   {
       });
 
     }
-    else if (!play.charArray.includes('_')) {
+    else if (!hiddenWord.includes('_')) {
         console.log("You WON! Nice Job!")
         hiddenWord = null;
+        //play = "new";
         play = new Word(golfWords[wordMath]);
         play.letterFunc();
-        hiddenWord = play.guessLetter;
+        hiddenWord = play.guessLetter();
         play.guessRemain = 5;
         userExp();
 
@@ -46,9 +47,10 @@ var userExp = function ()   {
     else if ( play.guessRemain === 0)   {
         console.log("Game Over, the word was " + play.word +  " ...Try again!");
         hiddenWord = null;
+        //play = "new";
         play = new Word(golfWords[wordMath]);
         play.letterFunc();
-        hiddenWord = play.guessLetter;
+        hiddenWord = play.guessLetter();
         play.guessRemain = 5;
         userExp();
 
