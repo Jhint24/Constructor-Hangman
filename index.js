@@ -33,26 +33,27 @@ var userExp = function ()   {
       });
 
     }
-    else if (!hiddenWord.includes('_')) {
+    else if (hiddenWord.indexOf("_")=== -1) {
         console.log("You WON! Nice Job!")
-        hiddenWord = null;
-        //play = "new";
-        play = new Word(golfWords[wordMath]);
-        play.letterFunc();
-        hiddenWord = play.guessLetter();
-        play.guessRemain = 5;
-        userExp();
+        // hiddenWord = null;
+        // //play = "new";
+        // play = new Word(golfWords[wordMath]);
+        // play.letterFunc();
+        // hiddenWord = play.guessLetter();
+        // play.guessRemain = 5;
+        // userExp();
 
     }
     else if ( play.guessRemain === 0)   {
         console.log("Game Over, the word was " + play.word +  " ...Try again!");
-        hiddenWord = null;
-        //play = "new";
-        play = new Word(golfWords[wordMath]);
-        play.letterFunc();
-        hiddenWord = play.guessLetter();
-        play.guessRemain = 5;
-        userExp();
+        // hiddenWord = null;
+        // //play = "new";
+        // play = new Word(golfWords[wordMath]);
+        // play.letterFunc();
+        // hiddenWord = play.guessLetter();
+        // play.guessRemain = 5;
+        // userExp();
+        
 
     } 
 }
