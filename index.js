@@ -11,10 +11,12 @@ var play = new Word(golfWords[wordMath]);
 //returns object
 play.letterFunc();
 //console.log(play.charArray);
-var hiddenWord = play.guessLetter();
+var hiddenWord = play.returnString();
 var userExp = function ()   {
 
-    if (play.guessRemain > 0 && hiddenWord.includes("_"))   {
+    if (play.guessRemain > 0)   {
+    
+    if (hiddenWord.trim().includes("_"))   {
         inquirer.prompt([
       {
         type: "prompt",
@@ -28,12 +30,13 @@ var userExp = function ()   {
         if (!play.word.includes(response.guess) && !play.charArray.includes(response.guess))    {
             console.log("Wrong guess");
             play.guessRemain--;
+            console.log(play.guessRemain +  " guesses remaining \n");
         }
         userExp();
       });
 
     }
-    else if (hiddenWord.indexOf("_")=== -1) {
+    else  {
         console.log("You WON! Nice Job!")
         // hiddenWord = null;
         // //play = "new";
@@ -44,7 +47,8 @@ var userExp = function ()   {
         // userExp();
 
     }
-    else if ( play.guessRemain === 0)   {
+        }
+        else   {
         console.log("Game Over, the word was " + play.word +  " ...Try again!");
         // hiddenWord = null;
         // //play = "new";

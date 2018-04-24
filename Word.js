@@ -14,11 +14,11 @@ function Word (word)    {
 }
 
     this.returnString = function()    {
-        var wordDisplayed = "";
+        var hiddenWord = "";
         for (var i = 0; i < this.word.length; i++) {
-            wordDisplayed += this.charArray[i].revealCharacter();
+            hiddenWord += this.charArray[i].revealCharacter();
         } 
-        return wordDisplayed;
+        return hiddenWord;
     }
     // function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
     this.guessLetter = function (character) {
