@@ -11,7 +11,7 @@ var play = new Word(golfWords[wordMath]);
 //returns object
 play.letterFunc();
 //console.log(play.charArray);
-var hiddenWord = play.returnString();
+var hiddenWord = play.guessLetter();
 var userExp = function ()   {
 
     if (play.guessRemain > 0)   {
@@ -26,6 +26,7 @@ var userExp = function ()   {
     
     ])
         .then(function(response) {
+            hiddenWord = play.guessLetter(response.guess);
         console.log(play.guessLetter(response.guess));
         if (!play.word.includes(response.guess) && !play.charArray.includes(response.guess))    {
             console.log("Wrong guess");
